@@ -1,22 +1,15 @@
 <template>
   <div class="fabrication">
     <div>
-      <img
-        class="fabrication-img"
-        src="../assets/chardon.webp"
-        alt="fabrication"
-      />
+      <img class="fabrication-img" src="" alt="fabrication" />
     </div>
     <div>
-      <h2>Processus de fabrication</h2>
-      <p>Pourquoi faire activer les oléagineux et germer les graines ?</p>
+      <h2>Processus ...</h2>
       <p>
-        L’activation est un procédé de trempage des graines et oléagineux dans
-        le but d'amorcer le début de germination Celle-ci permet la
-        décomposition de grosses molécules complexes en micronutriments simples
-        facilement assimilables par l’organisme Ce pré-traitement permet
-        d’augmenter leur potentiel nutritionnel et de profiter de leurs
-        bienfaits.
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex fugiat ab
+        reprehenderit illo, blanditiis quisquam deleniti atque debitis porro
+        numquam aperiam et id repellat expedita libero ducimus molestias saepe.
+        Architecto?
       </p>
     </div>
   </div>

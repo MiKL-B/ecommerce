@@ -4,7 +4,7 @@
       <div class="login-container">
         <div>
           <v-img
-            src="../assets/tables.webp"
+            src=""
             style="width: 400px"
             class="login-img"
             alt="huiles"

@@ -1,68 +1,70 @@
 <template>
-
-    <div class="valeur">
-      <div>
-        <h2>Qui sommes nous ? Et nos valeurs ?</h2>
-        <span
-          >Nous sommes une entreprise créee en 2022 basée à NANCY Notre ambition
-          est de vous :</span
-        >
-        <ul>
-          <li>
-            Proposer des huiles vierges de qualité, à partir des graines germées
-            et oléagineux activés
-          </li>
-          <li>
-            De travailler le plus souvent possible avec des producteurs locaux
-          </li>
-          <li>
-            Faire découvrir d’autres huiles végétales vierges issues des graines
-            et oléagineux produits sur d’autres continents (Afrique, ...)
-          </li>
-          <li>
-            Garantir la qualité et le fraîcheur de nos huiles produites :Leur
-            mode de production en petite quantité réduit leur temps de stockage
-          </li>
-        </ul>
-        <v-carousel hide-delimiters width="100%" class="carousel">
-          <v-carousel-item
-            v-for="(item, i) in items"
-            :key="i"
-            :src="item.src"
-            transition="fade-transition"
-          ></v-carousel-item>
-        </v-carousel>
-      </div>
-
+  <div class="valeur">
+    <div>
+      <h2>Qui sommes nous ? Et nos valeurs ?</h2>
+      <span
+        >Nous sommes une entreprise créee en 2022 basée à NANCY Notre ambition
+        est de vous :</span
+      >
+      <ul>
+        <li>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda,
+          pariatur expedita. Quasi repellendus voluptas ratione earum, eligendi
+          repellat non officia?
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda,
+          pariatur expedita. Quasi repellendus voluptas ratione earum, eligendi
+          repellat non officia?
+        </li>
+       <li>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda,
+          pariatur expedita. Quasi repellendus voluptas ratione earum, eligendi
+          repellat non officia?
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda,
+          pariatur expedita. Quasi repellendus voluptas ratione earum, eligendi
+          repellat non officia?
+        </li>
+      </ul>
+      <v-carousel hide-delimiters width="100%" class="carousel">
+        <v-carousel-item
+          v-for="(item, i) in items"
+          :key="i"
+          :src="item.src"
+          transition="fade-transition"
+        ></v-carousel-item>
+      </v-carousel>
+    </div>
   </div>
 </template>
 
 <script>
-import huiles from "../assets/huiles.webp";
-import graines from "../assets/graines.webp";
-import tables from "../assets/tables.webp";
+// import huiles from "../assets/huiles.webp";
+// import graines from "../assets/graines.webp";
+// import tables from "../assets/tables.webp";
 export default {
   name: "ValeurSection",
   data() {
     return {
-      items: [
-        {
-          src: huiles,
-        },
-        {
-          src: graines,
-        },
-        {
-          src: tables,
-        },
-      ],
+      // items: [
+      //   {
+      //     src: huiles,
+      //   },
+      //   {
+      //     src: graines,
+      //   },
+      //   {
+      //     src: tables,
+      //   },
+      // ],
     };
   },
 };
 </script>
 
 <style>
-
 .valeur {
   display: grid;
   grid-template-columns: 1fr;

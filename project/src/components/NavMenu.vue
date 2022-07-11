@@ -6,7 +6,7 @@
         <router-link to="/" title="accueil">Accueil</router-link>
         <span v-resize="onResize">
           <router-link v-if="size.x > 768" to="/huiles"
-            ><v-list-item>Nos Huiles</v-list-item></router-link
+            ><v-list-item>Nos ...</v-list-item></router-link
           ></span
         >
 
@@ -80,10 +80,10 @@
       <v-list nav dense>
         <v-list-item-group v-model="group">
           <router-link to="/" title="accueil">
-            <img class="nav-img" src="../assets/new-logo-2022.webp" alt="logo"
+            <img class="nav-img" src="" alt="logo"
           /></router-link>
           <router-link to="/huiles" class="nav-link"
-            ><v-list-item>Découvrir nos huiles</v-list-item></router-link
+            ><v-list-item>Découvrir nos ...</v-list-item></router-link
           >
 
           <router-link

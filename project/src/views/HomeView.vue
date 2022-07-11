@@ -4,24 +4,24 @@
       <v-img
         class="white--text lighten-2 home-img"
         height="100vh"
-        src="../assets/marche.webp"
+        src=""
         alt="home image"
       >
         <div class="home-content">
           <div class="home-text">
             <div class="home-title">
-              <h1 class="white--text">Les huiles végétales</h1>
-              <p>de graines germées</p>
+              <h1 class="white--text">Les produits...</h1>
+         
             </div>
             <v-btn dark width="200px" 
               ><router-link to="/huiles" data-cy="shop"
-                >découvrir nos huiles</router-link
+                >découvrir ...</router-link
               ></v-btn
             >
           </div>
 
           <v-card-text class="text"
-            ><img src="../assets/new-logo-2022.webp" alt="logo huile vegetale"
+            ><img src="" alt="logo"
           /></v-card-text>
         </div>
       </v-img>
