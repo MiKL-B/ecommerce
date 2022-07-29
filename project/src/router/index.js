@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import ShopView from "../views/ShopView.vue";
 import CartView from "../views/CartView.vue";
 import AdminView from "../views/AdminView.vue";
 import ErrorView from "../views/ErrorView.vue";
@@ -17,11 +16,6 @@ const routes = [
     path: "/",
     name: "home",
     component: HomeView,
-  },
-  {
-    path: "/huiles",
-    name: "ShopView",
-    component: ShopView,
   },
   {
     path: "/panier",

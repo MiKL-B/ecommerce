@@ -33,7 +33,7 @@ h2 {
   color: var(--vert);
 }
 a {
-  color: white !important;
+
   text-decoration: none;
 }
 img {

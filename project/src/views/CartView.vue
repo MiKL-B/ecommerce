@@ -10,10 +10,8 @@
           class="elevation-1"
         >
           <template v-slot:top>
-            <v-btn dark width="200px" 
-              ><router-link to="/huiles"
-                >Continuer mes achats</router-link
-              ></v-btn
+            <v-btn dark width="200px"
+              ><router-link to="/">Continuer mes achats</router-link></v-btn
             >
           </template>
           <template v-slot:[`item.label_volume`]="{ item }">
@@ -50,7 +48,7 @@
           >
           <v-card-actions>
             <v-btn dark width="200px" class="ma-2"
-              ><router-link to="/huiles">Boutique</router-link></v-btn
+              ><router-link to="/">Boutique</router-link></v-btn
             ></v-card-actions
           >
         </v-card>
@@ -79,32 +77,7 @@
           ></v-card-actions>
           <!--BOUTON PAYPAL-->
           <div class="paypal" v-if="$store.state.cart.length > 0">
-            <form
-              action="https://www.paypal.com/cgi-bin/webscr"
-              method="post"
-              target="_top"
-            >
-              <input type="hidden" name="cmd" value="_s-xclick" />
-              <input
-                type="hidden"
-                name="hosted_button_id"
-                value="UUZU4C87Z4R7A"
-              />
-              <input
-                type="image"
-                src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynowCC_LG.gif"
-                border="0"
-                name="submit"
-                alt="PayPal, le réflexe sécurité pour payer en ligne"
-              />
-              <img
-                alt=""
-                border="0"
-                src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif"
-                width="1"
-                height="1"
-              />
-            </form>
+            <v-btn>Paypal</v-btn>
           </div>
           <v-divider class="my-4"></v-divider>
 

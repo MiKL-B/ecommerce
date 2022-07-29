@@ -5,7 +5,6 @@
         Pas de produit pour l'instant !
       </h1></v-container
     >
-
     <v-container v-else>
       <div class="d-flex filter">
         <v-select
@@ -15,7 +14,6 @@
           solo
         >
         </v-select>
-
         <v-tooltip right>
           <template v-slot:activator="{ on, attrs }">
             <v-btn v-bind="attrs" v-on="on" icon @click="search = ''"
@@ -26,7 +24,6 @@
           <span>Réinitialiser</span></v-tooltip
         >
       </div>
-
       <div class="product-container">
         <v-card
           v-for="item in filterList"
@@ -85,8 +82,6 @@ export default {
   created() {
     axios.get("http://127.0.0.1:3000/api/product").then((response) => {
       this.shops = response.data;
-   
-
       this.shops.forEach((el) => {
         this.category.push(el.label_category);
       });

@@ -1,58 +1,33 @@
 <template>
   <div>
-    <v-card class="mx-auto">
-      <v-img
-        class="white--text lighten-2 home-img"
-        height="100vh"
-        src=""
-        alt="home image"
-      >
-        <div class="home-content">
-          <div class="home-text">
-            <div class="home-title">
-              <h1 class="white--text">Les produits...</h1>
-         
-            </div>
-            <v-btn dark width="200px" 
-              ><router-link to="/huiles" data-cy="shop"
-                >découvrir ...</router-link
-              ></v-btn
-            >
-          </div>
-
-          <v-card-text class="text"
-            ><img src="" alt="logo"
-          /></v-card-text>
-        </div>
-      </v-img>
-    </v-card>
-    <v-container>
-      <!-- fabrication -->
-      <section><FabricationSection></FabricationSection></section>
-      <!-- valeurs -->
-      <section><ValeurSection></ValeurSection></section>
-      <!-- engagements -->
-      <section><EngagementSection></EngagementSection></section>
-    </v-container>
-    <ContactSection></ContactSection>
+    <v-card>
+      <v-carousel v-model="model">
+        <v-carousel-item v-for="(color, i) in colors" :key="color">
+          <v-sheet :color="color" height="100%" tile>
+            <v-row class="fill-height" align="center" justify="center">
+              <div class="text-h2">Slide {{ i + 1 }}</div>
+            </v-row>
+          </v-sheet>
+        </v-carousel-item>
+      </v-carousel></v-card
+    >
+    <ShopView></ShopView>
   </div>
 </template>
 
 <script>
-import FabricationSection from "@/components/FabricationSection.vue";
-import ValeurSection from "@/components/ValeurSection.vue";
-import EngagementSection from "../components/EngagementSection.vue";
-import ContactSection from "../components/ContactSection.vue";
+import ShopView from "./ShopView.vue";
+
 export default {
   name: "HomeView",
   data() {
-    return {};
+    return {
+      model: 0,
+      colors: ["primary", "secondary", "yellow darken-2", "red", "orange"],
+    };
   },
   components: {
-    FabricationSection,
-    ValeurSection,
-    EngagementSection,
-    ContactSection,
+    ShopView,
   },
 };
 </script>

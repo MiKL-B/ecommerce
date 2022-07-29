@@ -1,100 +1,57 @@
 <template>
   <div>
     <v-card>
-      <v-app-bar dark fixed class="rounded-0">
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar  fixed class="rounded-0">
         <router-link to="/" title="accueil">Accueil</router-link>
-        <span v-resize="onResize">
-          <router-link v-if="size.x > 768" to="/huiles"
-            ><v-list-item>Nos ...</v-list-item></router-link
-          ></span
-        >
 
         <v-spacer></v-spacer>
-        <!-- menu -->
-        <v-menu 
-          v-model="menu"
-          :close-on-content-click="false"
-          :nudge-width="200"
-          offset-x
+
+        <div v-resize="onResize">
+          <v-autocomplete
+            v-if="size.x > 768"
+            chips
+            clearable
+            hide-details
+            hide-selected
+            item-text="name"
+            item-value="symbol"
+            label="Search for products..."
+            soloG
+          ></v-autocomplete>
+        </div>
+        <!--v-model="model"
+            :items="items"
+            :loading="isLoading"
+            :search-input.sync="search"-->
+        <v-spacer></v-spacer>
+        <router-link v-if="role === 1" to="/admin"
+          ><v-btn>admin</v-btn></router-link
         >
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn data-cy="account"
-              v-if="$store.state.user !== ''"
-              light
-              v-bind="attrs"
-              v-on="on"
-              ><span class="red--text text-lg-h6"
-                >{{ $store.state.cartCount }}<v-icon>mdi-cart</v-icon></span
-              >
-              Compte
-            </v-btn>
-
-            <router-link v-else to="/connexion">
-              <v-btn light data-cy="menu">connexion</v-btn>
-            </router-link>
-          </template>
-          <v-card v-resize="onResize">
-            <v-card-title v-if="$store.state.user !== ''"
-              ><v-icon class="mx-2">mdi-account</v-icon
-              >{{ pseudo }}</v-card-title
-            >
-            <v-divider></v-divider>
-            <v-card-text class="d-flex justify-space-around">
-              <!-- panier -->
-              <div v-if="$store.state.user !== ''">
-                <router-link v-if="size.x > 768" data-cy="cart" to="/panier"
-                  ><v-btn dark>panier</v-btn></router-link
-                >
-                <router-link v-else to="/panier"
-                  ><v-btn icon title="panier"
-                    ><v-icon>mdi-cart</v-icon></v-btn
-                  ></router-link
-                >
-              </div>
-              <v-divider vertical v-if="size.x < 768"></v-divider>
-              <div v-if="$store.state.user !== ''">
-                <v-btn v-if="size.x > 768" class="mx-2" @click="logout" dark
-                  >déconnexion</v-btn
-                >
-                <v-btn v-else icon @click="logout" title="déconnexion">
-                  <v-icon>mdi-logout</v-icon></v-btn
-                >
-              </div>
-            </v-card-text>
-            <v-divider></v-divider>
-
-            <v-card-text>
-              <div v-if="$store.state.user !== ''" class="d-flex">
-                <v-btn color="error" style="width: 100%" @click="deleteAccount"
-                  >supprimer compte</v-btn
-                >
-              </div></v-card-text
-            >
-          </v-card>
-        </v-menu>
-        <!-- menu -->
+        <div v-if="user !== ''">
+          <router-link to="/panier"
+            ><v-btn icon title="Panier"
+              ><span class="red--text text-lg-h6">{{ $store.state.cartCount }}</span
+              ><v-icon>mdi-cart</v-icon></v-btn
+            ></router-link
+          >
+          <v-btn icon @click="logout" title="Déconnexion">
+            <v-icon>mdi-logout</v-icon></v-btn
+          >
+        </div>
+        <div v-else>
+          <router-link to="/connexion"
+            ><v-btn icon title="Connexion"
+              ><v-icon>mdi-account</v-icon></v-btn
+            ></router-link
+          >
+        </div>
       </v-app-bar>
     </v-card>
-    <v-navigation-drawer v-model="drawer" fixed temporary>
-      <v-list nav dense>
-        <v-list-item-group v-model="group">
-          <router-link to="/" title="accueil">
-            <img class="nav-img" src="" alt="logo"
-          /></router-link>
-          <router-link to="/huiles" class="nav-link"
-            ><v-list-item>Découvrir nos ...</v-list-item></router-link
-          >
-
-          <router-link
-            v-if="$store.state.role === 1"
-            to="/admin"
-            class="nav-link"
-            ><v-list-item>Admin</v-list-item></router-link
-          >
-        </v-list-item-group>
-      </v-list>
-    </v-navigation-drawer>
+    <div v-if="$store.state.user !== ''" class="d-flex">
+      <v-btn color="error" style="width: 100%" @click="deleteAccount"
+        >supprimer compte</v-btn
+      >
+    </div>
   </div>
 </template>
 
@@ -111,11 +68,9 @@ export default {
         x: 0,
         y: 0,
       },
-      drawer: false,
-      group: null,
       user: this.$store.state.user,
+      role: this.$store.state.role,
       pseudo: "",
-      menu: false,
     };
   },
   mounted() {
@@ -149,11 +104,7 @@ export default {
       }
     },
   },
-  watch: {
-    group() {
-      this.drawer = false;
-    },
-  },
+
   computed: {
     ...mapState(["userId"]),
   },
@@ -180,7 +131,7 @@ export default {
 .nav-link {
   color: #303030 !important;
 }
-.router-link-exact-active{
- text-decoration: underline;
+.router-link-exact-active {
+  text-decoration: underline;
 }
 </style>
