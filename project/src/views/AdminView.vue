@@ -12,7 +12,7 @@
         <!-- headers -->
         <template v-slot:top>
           <v-toolbar flat>
-            <v-toolbar-title>Huiles</v-toolbar-title>
+            <v-toolbar-title>Produits</v-toolbar-title>
             <v-spacer></v-spacer>
             <!-- DIALOG create product -->
             <v-dialog v-model="dialog" max-width="500px">
@@ -38,7 +38,7 @@
                   <v-card-text>
                     <v-text-field
                       v-model="form.name"
-                      label="Nom huile"
+                      label="Nom"
                       type="text"
                       required
                       :rules="nameRules"

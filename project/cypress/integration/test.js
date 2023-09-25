@@ -1,7 +1,7 @@
 describe('Cart', function () {
     it('Ajouter un produit au panier', function () {
         cy.server()
-       // cy.intercept('GET', /huiles./, 'fixture:product.json').as('getProduct')
+       // cy.intercept('GET', /page./, 'fixture:product.json').as('getProduct')
         cy.visit('http://localhost:5433/')
 
         //vérifier si on peut acheter le produit 

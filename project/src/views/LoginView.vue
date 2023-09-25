@@ -7,7 +7,7 @@
             src=""
             style="width: 400px"
             class="login-img"
-            alt="huiles"
+            alt=""
           ></v-img>
         </div>
 

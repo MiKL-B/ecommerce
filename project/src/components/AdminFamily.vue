@@ -134,7 +134,7 @@ export default {
     },
     //delete category
     deleteCategory(id) {
-      if (window.confirm("voulez vous supprimer cette famille ? Cela supprimera les huiles associées ")) {
+      if (window.confirm("voulez vous supprimer cette famille ? Cela supprimera les produits associée ")) {
         axios.delete(`http://localhost:3000/api/category/${id}`);
         window.location.reload();
       }

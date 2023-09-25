@@ -44,7 +44,7 @@ const createProduct = async (request, response) => {
     const arr = data.rows;
     if (arr.length != 0) {
       //code ...
-      return response.status(400).send("huile deja existante");
+      return response.status(400).send("deja existant");
     } else {
       //code ...
       let date = new Date();
