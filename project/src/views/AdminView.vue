@@ -44,7 +44,7 @@
                       :rules="nameRules"
                     ></v-text-field>
 
-                    <v-text-field
+                   <!--  <v-text-field
                       v-model="form.description"
                       label="Description"
                       type="text"
@@ -110,7 +110,7 @@
                       required
                       multiple
                     />
-                    <v-img v-if="image" :src="image"></v-img>
+                    <v-img v-if="image" :src="image"></v-img>-->
                   </v-card-text>
                   <v-card-actions>
                     <v-spacer></v-spacer>
@@ -220,12 +220,12 @@ export default {
         axios
           .put(`http://localhost:3000/api/product/${this.idProduct}`, {
             name: this.form.name,
-            image: this.image,
-            description: this.form.description,
-            composition: this.form.composition,
-            price: this.form.price,
-            category: this.selectedCategory,
-            volume: this.selectedVolume,
+            // image: this.image,
+            // description: this.form.description,
+            // composition: this.form.composition,
+            // price: this.form.price,
+            // category: this.selectedCategory,
+            // volume: this.selectedVolume,
           })
           .then(() => {
             window.location.reload();

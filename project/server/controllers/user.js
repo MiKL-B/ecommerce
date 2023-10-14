@@ -51,12 +51,12 @@ const login = async (request, response) => {
 
         //JWT
         response.status(200).json({
-          userId: users.rows[0].id_person,
+          id_person: users.rows[0].id_person,
           email: users.rows[0].email,
           role: users.rows[0].role,
           token: jwt.sign(
             {
-              userId: users.rows[0].id_person,
+              id_person: users.rows[0].id_person,
               email: users.rows[0].email,
               role: users.rows[0].role,
             },

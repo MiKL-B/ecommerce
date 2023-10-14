@@ -58,7 +58,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (to.path === "/admin") {
     //recuperation info localstorage
-    if (Vuex.state.isLoggedIn && Vuex.state.role === 1) {
+    if (Vuex.state.isLoggedIn && Vuex.state.role === "1") {
       return next();
     } else {
       return next("/");
@@ -101,6 +101,6 @@ if (jwt) {
   Vuex.commit("UPDATE_LOGIN", true);
   Vuex.commit("UPDATE_ROLE", token.role);
   Vuex.commit("GET_USER", token.email);
-  Vuex.commit("GET_USER_ID", token.userId);
+  Vuex.commit("GET_USER_ID", token.id_person);
 }
 export default router;

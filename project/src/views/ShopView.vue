@@ -1,6 +1,6 @@
 <template>
   <div class="shop padding-container">
-    <v-container v-if="!shops.length"
+ <!--    <v-container v-if="!shops.length"
       ><h1 class="d-flex justify-center my-10">
         Pas de produit pour l'instant !
       </h1></v-container
@@ -58,7 +58,12 @@
           </v-card-actions>
         </v-card>
       </div>
-    </v-container>
+    </v-container> -->
+      <div v-for="item in shops" :key="item.pk_productid">{{item}}
+        <router-link :to="`/produit/${item.slug}`" data-cy="product">
+          <v-btn dark>voir produit</v-btn>
+        </router-link>
+      </div>
   </div>
 </template>
 <script>
@@ -82,9 +87,9 @@ export default {
   created() {
     axios.get("http://127.0.0.1:3000/api/product").then((response) => {
       this.shops = response.data;
-      this.shops.forEach((el) => {
-        this.category.push(el.label_category);
-      });
+      // this.shops.forEach((el) => {
+      //   this.category.push(el.label_category);
+      // });
     });
   },
 };

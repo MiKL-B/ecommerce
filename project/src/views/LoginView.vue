@@ -2,15 +2,6 @@
   <div class="login padding-container">
     <v-container>
       <div class="login-container">
-        <div>
-          <v-img
-            src=""
-            style="width: 400px"
-            class="login-img"
-            alt=""
-          ></v-img>
-        </div>
-
         <v-card>
           <form @submit.prevent="login" class="login-form">
             <h1>{{ register ? "Inscription" : "Connexion" }}</h1>
@@ -20,7 +11,7 @@
               class="field"
               name="email"
               type="email"
-              :rules="emailRules"
+
               label="Adresse email"
               required
               append-icon="mdi-at"
@@ -32,17 +23,18 @@
               class="field"
               name="mdp"
               placeholder="password"
-              :type="passwordType"
-              :rules="passwordRules"
+
               label="Mot de passe"
-              required
+
               @click:append="changeEye"
               :append-icon="eye ? 'mdi-eye' : 'mdi-eye-off'"
               counter
             >
             </v-text-field>
+                  <!--       :type="passwordType"
+              :rules="passwordRules" -->
             <!-- confirm mdp -->
-            <v-text-field
+          <!--    <v-text-field
             data-cy="confirmmdp"
               v-if="register"
               v-model="confirmmdp"
@@ -57,7 +49,7 @@
               :append-icon="eye ? 'mdi-eye' : 'mdi-eye-off'"
               counter
             >
-            </v-text-field>
+            </v-text-field> -->
             <!-- register / login -->
             <div>
               <span data-cy="register"
@@ -105,32 +97,32 @@ export default {
       timeout: 2000,
       register: false,
       email: "",
-      emailRules: [
-        (v) => !!v || "E-mail requis",
-        (v) =>
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-            v
-          ) || "E-mail doit être valide. Ex: adresse@mail.fr",
-      ],
+      // emailRules: [
+      //   (v) => !!v || "E-mail requis",
+      //   (v) =>
+      //     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      //       v
+      //     ) || "E-mail doit être valide. Ex: adresse@mail.fr",
+      // ],
       password: "",
       confirmmdp: "",
       passwordType: "password",
-      passwordRules: [
-        (v) => !!v || "Mot de passe requis",
-        (v) =>
-          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
-            v
-          ) ||
-          "Le mot de passe doit être de longueur 8 et contenir au moins: 1 lettre majuscule, 1 lettre minuscule, 1 chiffre, 1 caractère spécial",
-      ],
-      confirmRules: [
-        (v) => !!v || "Doit être identique au mot de passe",
-        (v) =>
-          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
-            v
-          ) ||
-          "Le mot de passe doit être de longueur 8 et contenir au moins: 1 lettre majuscule, 1 lettre minuscule, 1 chiffre, 1 caractère spécial",
-      ],
+      // passwordRules: [
+      //   (v) => !!v || "Mot de passe requis",
+      //   (v) =>
+      //     /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
+      //       v
+      //     ) ||
+      //     "Le mot de passe doit être de longueur 8 et contenir au moins: 1 lettre majuscule, 1 lettre minuscule, 1 chiffre, 1 caractère spécial",
+      // ],
+      // confirmRules: [
+      //   (v) => !!v || "Doit être identique au mot de passe",
+      //   (v) =>
+      //     /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
+      //       v
+      //     ) ||
+      //     "Le mot de passe doit être de longueur 8 et contenir au moins: 1 lettre majuscule, 1 lettre minuscule, 1 chiffre, 1 caractère spécial",
+      // ],
       token: "",
 
       disabled: false,
@@ -151,26 +143,28 @@ export default {
       this.errors = [];
       if (!this.email) {
         this.errors.push("Email required.");
-      } else if (!this.validEmail(this.email)) {
-        this.errors.push("Valid email required.");
       }
+      // else if (!this.validEmail(this.email)) {
+      //   this.errors.push("Valid email required.");
+      // }
       if (!this.password) {
         this.errors.push("Password required");
-      } else if (!this.validPassword(this.password)) {
-        this.errors.push("Valid password required.");
       }
-      if (this.register) {
-        if (this.password !== this.confirmmdp) {
-          this.errors.push(
-            "le mot de passe et la confirmation doivent être identique"
-          );
-        }
-      }
+      // else if (!this.validPassword(this.password)) {
+      //   this.errors.push("Valid password required.");
+      // }
+      // if (this.register) {
+      //   if (this.password !== this.confirmmdp) {
+      //     this.errors.push(
+      //       "le mot de passe et la confirmation doivent être identique"
+      //     );
+      //   }
+      // }
 
-      if (!this.errors.length) {
+      // if (!this.errors.length) {
         axios
           .post(
-            `http://127.0.0.1:3000/api/user/${
+            `http://localhost:3000/api/user/${
               this.register ? "signup" : "login"
             }`,
             {
@@ -196,9 +190,10 @@ export default {
           })
           .catch((err) => {
             this.error = err.request.response;
+            console.log(err.request)
           });
         return true;
-      }
+      // }
     },
     validEmail: function (email) {
       var re =
@@ -234,7 +229,6 @@ export default {
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    height: 400px;
   }
   .login-form {
     width: 300px;

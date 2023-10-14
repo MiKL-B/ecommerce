@@ -7,8 +7,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     user: "",
-    userId: 0,
-    role: 0,
+    id_person: 0,
+    role: "0",
     isLoggedIn: false,
     cart: cart ? JSON.parse(cart) : [],
     cartCount: cartCount ? parseInt(cartCount) : 0,

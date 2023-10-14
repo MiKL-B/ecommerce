@@ -6,24 +6,6 @@
 
         <v-spacer></v-spacer>
 
-        <div v-resize="onResize">
-          <v-autocomplete
-            v-if="size.x > 768"
-            chips
-            clearable
-            hide-details
-            hide-selected
-            item-text="name"
-            item-value="symbol"
-            label="Search for products..."
-            soloG
-          ></v-autocomplete>
-        </div>
-        <!--v-model="model"
-            :items="items"
-            :loading="isLoading"
-            :search-input.sync="search"-->
-        <v-spacer></v-spacer>
         <router-link v-if="role === 1" to="/admin"
           ><v-btn>admin</v-btn></router-link
         >

@@ -2,7 +2,7 @@ const pool = require("../config/db.js");
 
 const getAllProduct = (request, response) => {
   let sql =
-    "SELECT * from product INNER JOIN category on product.id_category = category.id_category INNER JOIN volume on product.id_volume = volume.id_volume";
+    "SELECT * from product";
 
   pool.query(sql, (error, results) => {
     if (error) {
